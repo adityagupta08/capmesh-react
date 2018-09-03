@@ -35,7 +35,7 @@ verifyConfirmPassword(e){
     submitUserDetails(e) {
     e.preventDefault();
    if(this.props.match.params.userType=="user"){
-    axios.post(HOST + '/rest/api/users/changepassword', {
+    axios.post(HOST + '/rest/api/users/change-password', {
       password: this.state.password ,
       userName:this.props.match.params.name,
     }).then(response => {
@@ -85,7 +85,7 @@ verifyConfirmPassword(e){
      
 
         <label className="control-label">Confirm Password : </label>
-        <input className="form-control"  onChange={this.verifyConfirmPassword.bind(this)} type="password" id="password1"  required/>
+        <input className="form-control"  onChange={this.verifyConfirmPassword.bind(this)} type="password" id="password2"  required/>
        <div className="errorMessage" id="err">{this.state.confirmPasswordError}</div>
 
         <div>

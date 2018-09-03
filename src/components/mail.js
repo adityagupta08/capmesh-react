@@ -14,12 +14,14 @@ class Mail extends Component {
         e.preventDefault();
         if(this.props.match.params.userType=="user"){
         var UserName=this.props.match.params.name;
+        console.log(this.props.match.params.id);
         axios.post(HOST + '/rest/api/users/verification', {
             verificationCode:this.props.match.params.id,
             userName: this.props.match.params.name,
 
         }).then(response => {
             this.setState({ data: response.data });
+            console.log(this.state.data);
             if (this.state.data == "done"){
                 window.open("/changePassword/user/"+UserName, "");
                 window.close("/forgotPassword")

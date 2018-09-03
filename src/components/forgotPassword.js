@@ -17,7 +17,7 @@ class forgotPassword extends Component {
         if(this.props.match.params.userType=="users"){
         this.setState({name:this.refs.userName.value});
         p.preventDefault();
-        axios.post(HOST + '/rest/api/users/password', {
+        axios.post(HOST + '/rest-api/user/forget-password', {
             userName: this.refs.userName.value,
 
         }).then(response => {
@@ -26,6 +26,7 @@ class forgotPassword extends Component {
             if (this.state.data) {
                 this.setState({ message: "Verification code is sent" });
                 window.open("/login","_self");
+                console.log(this.state.data)
               window.open('/mail/user/' + this.state.data+'/'+this.state.name, "", "width=800, height=500");// Opens a new window  
     }
             else {

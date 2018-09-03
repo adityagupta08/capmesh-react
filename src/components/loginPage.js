@@ -3,11 +3,13 @@ import './loginPage.css';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
+
 const HOST = 'http://localhost:8080';
 class loginPage extends Component {
 
   constructor(props) {
     super(props);
+    
     this.state = {
       data: [],
       userType: null,
@@ -29,6 +31,7 @@ class loginPage extends Component {
       alert("Please select User Type");
     }
   }
+
   formsubmit(p) {
     p.preventDefault();
     if (document.getElementById("users").checked) {
@@ -39,7 +42,9 @@ class loginPage extends Component {
         this.setState({ data: response.data });
         if (this.state.data == "logged In") {
           sessionStorage.userName = this.refs.name.value
-          window.open("http://localhost:4200/", "_self");
+          let user = this.refs.name.value
+          console.log(user)
+          window.open("http://localhost:4200/auth/"+user, "_self");
         }
         else if (this.state.data == "not verified") {
           window.open("/notVerified/users/" + this.refs.name.value, "_self");
