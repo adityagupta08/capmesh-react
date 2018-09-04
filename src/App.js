@@ -11,6 +11,9 @@ import passwordUpdate from './components/passwordUpdate';
 import NotVerified from './components/notVerified';
 import Home from './components/home';
 import Organization from './components/organization';
+import MainCompanyComponent from './components/company/main'
+import Footer from './components/footer';
+import CompanyJobListComponent from './components/company/job-list'
 
 class App extends Component {
   constructor(props) {
@@ -37,12 +40,14 @@ class App extends Component {
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/passwordUpdate' component={passwordUpdate} />
           <Route exact path='/notVerified/:userType/:username' component={NotVerified} />
-    <Route exact path='/home' render = {()=><Home user={this.state.userName} />} />
-           <Route exact path='/Organization' component={Organization} />
+          <Route exact path='/orgs' render = {()=><MainCompanyComponent user={this.state.userName} />} />
+          <Route exact path='/Organization' component={Organization} />
+          <Route exact path='/cviewjobs/:id' component={CompanyJobListComponent} />
 
           <Route exact path='/LinkVerification/:whichone/:id/:verificationCode' component={LinkVerification} />
         </Switch>
       </Router>
+      <Footer />
     </div>
     );
   }

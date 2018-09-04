@@ -39,7 +39,7 @@ class forgotPassword extends Component {
     else{
           this.setState({id:this.refs.userName.value});
         p.preventDefault();
-        axios.post(HOST + '/rest/api/orgs/password', {
+        axios.post(HOST + '/rest-api/orgs/forget-password', {
             companyID: this.refs.userName.value,
 
         }).then(response => {

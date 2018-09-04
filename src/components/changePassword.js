@@ -54,7 +54,7 @@ verifyConfirmPassword(e){
    }
    else
    {
-       axios.post(HOST + '/rest/api/orgs/changepassword', {
+       axios.post(HOST + '/rest-api/orgs/change-password', {
       password: this.state.password ,
       companyID:this.props.match.params.name,
     }).then(response => {

@@ -76,7 +76,7 @@ class loginPage extends Component {
         alert(this.state.data);
         if (this.state.data == "logged In") {
           sessionStorage.userName = this.refs.name.value
-          window.open("/home", "_self");
+          window.open("/orgs", "_self");
         }
         else if (this.state.data == "not verified") {
           window.open("/notVerified/company/" + this.refs.name.value, "_self");
