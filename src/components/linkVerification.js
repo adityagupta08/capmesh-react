@@ -9,7 +9,7 @@ class LinkVerification extends Component {
         this.Id = "userName";
           var userName =  this.props.match.params.id;
      var verificationCode = this.props.match.params.verificationCode;
-      var url = 'http://localhost:8080/rest-api/users/activate/'+userName+"/"+verificationCode;
+      var url = 'http://10.102.55.85:8080/rest-api/users/activate/'+userName+"/"+verificationCode;
         axios.delete(url).then(response => {
           var mywindow=window.open('','_self');
           mywindow.document.write("successfully verified")
@@ -19,7 +19,7 @@ class LinkVerification extends Component {
         this.Id = "company ID"
           var companyID =  this.props.match.params.id;
      var verificationCode = this.props.match.params.verificationCode;
-      var url = 'http://localhost:8080/rest-api/orgs/activate/'+companyID+"/"+verificationCode;
+      var url = 'http://10.102.55.85:8080/rest-api/orgs/activate/'+companyID+"/"+verificationCode;
         axios.delete(url).then(response => {
           var mywindow=window.open('','_self');
           mywindow.document.write("successfully verified")

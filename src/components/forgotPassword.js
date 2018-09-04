@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './forgotPassword.css';
 import axios from "axios";
-const HOST = 'http://localhost:8080';
+const HOST = 'http://10.102.55.85:8080';
 var name;
 class forgotPassword extends Component {
     constructor(props) {
