@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 
 
-const HOST = 'http://10.102.55.85:8080';
+const HOST = 'http://10.102.55.73:8080';
 class loginPage extends Component {
 
   constructor(props) {
@@ -44,7 +44,7 @@ class loginPage extends Component {
           sessionStorage.userName = this.refs.name.value
           let user = this.refs.name.value
           console.log(user)
-          window.open("http://10.102.55.85:4200/auth/"+user, "_self");
+          window.open("http://10.102.55.73:4200/auth/"+user, "_self");
         }
         else if (this.state.data == "not verified") {
           window.open("/notVerified/users/" + this.refs.name.value, "_self");

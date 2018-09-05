@@ -4,7 +4,7 @@ import CompanyUserProfile from './profile';
 import axios from 'axios';
 import Header from './header';
 
-const HOST = 'http://10.102.55.85:8080';
+const HOST = 'http://10.102.55.73:8080';
 
 // const services = new Service();
 class MainCompanyComponent extends Component {

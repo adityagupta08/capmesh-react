@@ -25,7 +25,7 @@ class Organization extends Component {
         var companyID = e.target.value;
         if(companyID.match(/^[a-zA-Z0-9]{6,15}$/)){
         this.setState({companyIDError : null,companyID});
-        var url = 'http://10.102.55.85:8080/rest/api/orgs/uniqueCompanyID';
+        var url = 'http://10.102.55.73:8080/rest/api/orgs/uniqueCompanyID';
         axios.post(url,{companyID:companyID}).then(response => {
         if(!response.data){
             this.setState({companyIDError : "Company ID already exists"});
@@ -51,7 +51,7 @@ verifyEmail(e){
         var email = e.target.value;
         if(email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)){
         this.setState({emailError : null,email});
-        var url = 'http://10.102.55.85:8080/rest/api/users-orgs/uniqueEmail';
+        var url = 'http://10.102.55.73:8080/rest/api/users-orgs/uniqueEmail';
         axios.post(url,{email:email}).then(response => {
         if(!response.data){
             this.setState({emailError : "Email already exists"});
@@ -110,7 +110,7 @@ submitOrgsDetails(e){
         about:a.about,
         password : a.password
         }
-        var url = 'http://10.102.55.85:8080/rest-api/orgs/signup';
+        var url = 'http://10.102.55.73:8080/rest-api/orgs/signup';
     axios.post(url,orgsFormData).then(response => {
          var myval = response.data;
        window.open('/LinkVerification/'+'company'+"/"+myval[0].companyID+"/"+myval[0].verificationCode,'_blank',"height=500,width=700");

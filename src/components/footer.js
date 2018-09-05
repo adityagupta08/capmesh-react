@@ -50,7 +50,7 @@ class Footer extends Component {
 
                         {/*<!-- Copyright -->*/}
                         <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="https://10.102.55.85:4200/home"> JS Full stack 13th June batch @ Capgemini India Pvt. Ltd.</a>
+      <a href="https://10.102.55.73:4200/home"> JS Full stack 13th June batch @ Capgemini India Pvt. Ltd.</a>
                         </div>
                         {/*<!-- Copyright -->*/}
 

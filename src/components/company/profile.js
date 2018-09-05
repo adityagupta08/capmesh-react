@@ -7,7 +7,7 @@ import clogo from './clogo.png';
 import logo from '../../logo.svg';
 // import PostComponent from './posts';
 // import JobListComponent from './job-list';
-const HOST = 'http://10.102.55.85:8080';
+const HOST = 'http://10.102.55.73:8080';
 
 // import cap from './img/cap.png';
 // import cview from './img/cview.png';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Mail.css';
 import axios from "axios";
-const HOST = 'http://10.102.55.85:8080';
+const HOST = 'http://10.102.55.73:8080';
 
 class Mail extends Component {
     constructor(props) {

@@ -14,6 +14,7 @@ import Organization from './components/organization';
 import MainCompanyComponent from './components/company/main'
 import Footer from './components/footer';
 import CompanyJobListComponent from './components/company/job-list'
+import Logout from './components/logout';
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class App extends Component {
           <Route exact path='/orgs' render = {()=><MainCompanyComponent user={this.state.userName} />} />
           <Route exact path='/Organization' component={Organization} />
           <Route exact path='/cviewjobs/:id' component={CompanyJobListComponent} />
-
+          <Route exact path='/logout' component={Logout} />
           <Route exact path='/LinkVerification/:whichone/:id/:verificationCode' component={LinkVerification} />
         </Switch>
       </Router>

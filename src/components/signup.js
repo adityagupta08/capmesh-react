@@ -26,7 +26,7 @@ class Signup extends Component {
         console.log('kuch bhi')
         if(userName.match(/^[a-zA-Z0-9]{6,15}$/)){
         this.setState({userNameError : null,userName});
-        var url = 'http://10.102.55.85:8080/rest/api/users/uniqueUserName';
+        var url = 'http://10.102.55.73:8080/rest/api/users/uniqueUserName';
         axios.post(url,{userName:userName}).then(response => {
             console.log(response)
         if(!response.data){
@@ -53,7 +53,7 @@ verifyEmail(e){
         var email = e.target.value;
         if(email.match(/^[\w/.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)){
         this.setState({emailError : null,email});
-        var url = 'http://10.102.55.85:8080/rest/api/users-orgs/uniqueEmail';
+        var url = 'http://10.102.55.73:8080/rest/api/users-orgs/uniqueEmail';
         axios.post(url,{email:email}).then(response => {
         if(!response.data){
             this.setState({emailError : "Email already exists"});
@@ -115,7 +115,7 @@ submitUserDetails(e){
         password : a.password
     }
     
-        var url = 'http://10.102.55.85:8080/rest-api/users/signup';
+        var url = 'http://10.102.55.73:8080/rest-api/users/signup';
     axios.post(url,userFormData).then(response => {
          var myval = response.data;
       window.open('/LinkVerification/'+'user'+"/"+myval[0].userName+"/"+myval[0].verificationCode,'_blank',"height=500,width=700");

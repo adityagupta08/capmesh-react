@@ -4,7 +4,7 @@ import axios from "axios";
 class NotVerified extends Component {
     generateLink(){
         if(this.props.match.params.userType == "users"){
-        var url = 'http://10.102.55.85:8080/rest-api/user/verify';
+        var url = 'http://10.102.55.73:8080/rest-api/user/verify';
     axios.post(url, {
       userName: this.props.match.params.username,
     }).then(response => {
@@ -14,7 +14,7 @@ class NotVerified extends Component {
     });
 }
 else {
-     var url = 'http://10.102.55.85:8080/rest-api/orgs/verify';
+     var url = 'http://10.102.55.73:8080/rest-api/orgs/verify';
     axios.post(url, {
       companyID: this.props.match.params.username,
     }).then(response => {

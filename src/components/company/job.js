@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import Applicant from './applicant';
+import ApplicantComponent from './applicant';
 
-const HOST = 'http://10.102.55.85:8080';
+const HOST = 'http://10.102.55.73:8080';
 class CompanyJobComponent extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,8 @@ class CompanyJobComponent extends Component {
     }    
   }
   componentWillMount(){
-
+    // this.getApplicantList(this.props.states.company.companyID, this.props.job.jobId);
+    // this.getApplicantCount(this.props.states.company.companyID, this.props.job.jobId); 
   }
 
     changeShow(){
@@ -42,7 +43,7 @@ class CompanyJobComponent extends Component {
   
     getApplicantList(companyId, jobId) {
         axios.post(HOST + '/rest-api/orgs/applicant-list', { "companyId": companyId, "jobId": jobId }).then(response => {
-            
+            console.log(response.data);
             this.setState({applicantList: response.data});            
         }).catch(function (error) {
             console.log(error);
@@ -58,6 +59,8 @@ class CompanyJobComponent extends Component {
       });
       window.open('/cviewjobs/'+this.props.states.company.companyID, '_self');
   }
+
+
   handleApplicant(companyId, jobId){
       this.changeShow();
       console.log(companyId, jobId);
@@ -66,17 +69,18 @@ class CompanyJobComponent extends Component {
       //window.open('/applicants', '_self');
   }
 render() {
-    //   if(this.props.states.userId)
-    //console.log("In Job", this.props.states.company.companyID);
+    //console.log(this.props);
+    
     let applicant;
         if (this.state.applicantList) {
             applicant = this.state.applicantList.map(todo => {                
                 return (
-                    <Applicant applicant={todo}/>
+                    <ApplicantComponent applicant={todo}/>
                 );
             }); 
         }
     return (
+        
       <div className="jobList">
           <div className="float-left">
               <p><b>Job Position:</b> {this.props.job.position}</p>
@@ -89,7 +93,7 @@ render() {
 
               <button className="btn btn-success" onClick={this.handleApplicant.bind(this, this.props.states.company.companyID, this.props.job.jobId)}> SEE APPLICANTS</button>
 
-              <button className="btn btn-danger btn-job" onClick={this.remove.bind(this, this.props.states.company.companyID, this.props.job.jobId)}>REMOVE</button>
+              {/* <button className="btn btn-danger btn-job" onClick={this.remove.bind(this, this.props.states.company.companyID, this.props.job.jobId)}>REMOVE</button> */}
           </div>
           <div id="showApplicants" style={{display: this.state.display}}>
               <h4><b>Total Applicants: {this.state.applicantCount.length}</b></h4>
